@@ -1,3 +1,0 @@
-datasets/users_item_parq.gz filter=lfs diff=lfs merge=lfs -text
-datasets/users_item_parq.parquet filter=lfs diff=lfs merge=lfs -text
-datasets/user_items_proc.csv.gz filter=lfs diff=lfs merge=lfs -text
