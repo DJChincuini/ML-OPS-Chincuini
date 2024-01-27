@@ -12,6 +12,7 @@ Los datos utilizados abarcan información relacionada con juegos en la plataform
 
 
 # Archivos
+### ETL y EDA
 
 Podrán encontrar en el archivo llamado ETL el desarrollo de proceso de limpieza y transformación de datos de cada DataFrame que en el archivo EDA se encuentran analizados y explicados.
 
@@ -19,8 +20,14 @@ ETL: https://github.com/DJChincuini/ML-OPS-Chincuini/blob/main/ETL/ETL.ipynb
 
 EDA: https://github.com/DJChincuini/ML-OPS-Chincuini/blob/main/EDA/EDA.ipynb
 
-# 
+### Funciones
 
 En el archivo Funciones encontraran cada una de las funciones que desarrolle para este trabajo.
 
 Funciones: https://github.com/DJChincuini/ML-OPS-Chincuini/blob/main/Funciones.py
+
+### API
+
+En el archivo Main.py podrán encontrar el desarrollo de la API realizada con la librería FastAPI.
+
+API: https://github.com/DJChincuini/ML-OPS-Chincuini/blob/main/main.py
