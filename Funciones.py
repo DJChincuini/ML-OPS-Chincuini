@@ -37,7 +37,7 @@ def func_playTime(genero:str):
     return f'Año de lanzamiento con más horas jugadar por para el genero {genero} es: {maximo}'
 
 ### Función 2 ###
-def UserForGenre(genero:str):
+def funcUserGenre(genero:str):
     '''
     Debe devolver el usuario que acumula más horas jugadas para el género dado y una lista de la acumulación de horas jugadas por año.
     Ejemplo de retorno: {"Usuario con más horas jugadas para Género X" : us213ndjss09sdf, "Horas jugadas":[{Año: 2013, Horas: 203}, {Año: 2012, Horas: 100}, {Año: 2011, Horas: 23}]}
@@ -71,7 +71,7 @@ def UserForGenre(genero:str):
 
 
 ### Función 3 ###
-def UsersRecommend( año : int ):
+def func_UsersRecommend( año : int ):
     ''' Devuelve el top 3 de juegos MÁS recomendados por usuarios para el año dado. (reviews.recommend = True y comentarios positivos/neutrales)
     Ejemplo de retorno: [{"Puesto 1" : X}, {"Puesto 2" : Y},{"Puesto 3" : Z}]
     '''
@@ -110,7 +110,7 @@ def UsersRecommend( año : int ):
 
 
 ### Función 4 ###
-def UsersWorstDeveloper( año : int ):
+def func_UsersWorstDeveloper( año : int ):
     '''
     Devuelve el top 3 de desarrolladoras con juegos MENOS recomendados por usuarios para el año dado. (reviews.recommend = False y comentarios negativos)
     Ejemplo de retorno: [{"Puesto 1" : X}, {"Puesto 2" : Y},{"Puesto 3" : Z}]
