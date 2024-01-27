@@ -20,11 +20,15 @@ ETL: https://github.com/DJChincuini/ML-OPS-Chincuini/blob/main/ETL/ETL.ipynb
 
 EDA: https://github.com/DJChincuini/ML-OPS-Chincuini/blob/main/EDA/EDA.ipynb
 
+
+
 ### Funciones
 
 En el archivo Funciones encontraran cada una de las funciones que desarrolle para este trabajo.
 
 Funciones: https://github.com/DJChincuini/ML-OPS-Chincuini/blob/main/Funciones.py
+
+
 
 ### API
 
