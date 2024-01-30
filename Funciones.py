@@ -1,5 +1,4 @@
 import pandas as pd
-import numpy as np
 from sklearn.neighbors import NearestNeighbors
 from sklearn.model_selection import train_test_split
 
@@ -36,38 +35,29 @@ def func_playTime(genero:str):
     
     return f'Año de lanzamiento con más horas jugadar por para el genero {genero} es: {maximo}'
 
+
 ### Función 2 ###
 def funcUserGenre(genero:str):
     '''
     Debe devolver el usuario que acumula más horas jugadas para el género dado y una lista de la acumulación de horas jugadas por año.
     Ejemplo de retorno: {"Usuario con más horas jugadas para Género X" : us213ndjss09sdf, "Horas jugadas":[{Año: 2013, Horas: 203}, {Año: 2012, Horas: 100}, {Año: 2011, Horas: 23}]}
     '''
-    # Cargo los DataFrames.
-    steam_games = pd.read_csv('./datasets/steam_games.csv')
-   
-    user_items = pd.read_csv(f'./datasets/user_items_comp_csv.gz', compression='gzip')
     
-
-    # Saco espacios en blanco y capitalizo la primer letra si es necesario.
+     # Saco espacios en blanco y capitalizo la primer letra si es necesario.
     genero = genero.strip().capitalize()
-
-    # Hago un Merge para que la columna genres esté en la tabla user_items
-    user_items = pd.merge(user_items,steam_games[['id','genres']], on='id', how='inner')
-    user_items
     
+    # Cargo el csv de los generos con usuarios con mas horas
+    users_gen = pd.read_csv('./datasets/userForGenre.csv')
+    if genero.lower() not in [x.lower() for x in users_gen['Género'].tolist()]:
+        return "No se encontró ese genero"
     
-    # Busco lo valores con el genero indicado
-    user_x_cleaned = user_items.dropna(subset=['genres'])
-    user_filtered = user_x_cleaned[user_x_cleaned['genres'].str.contains(genero)]
-    
-    
-    # Encuentro al usuario con la cantidad de horas más altas
-    user = user_filtered.loc[user_filtered['playtime_forever'].idxmax()]
-    '''
-    ------------------------------------------------------------------------------------------------------------------------------------------
-    INCOMPLETO
-    ------------------------------------------------------------------------------------------------------------------------------------------
-    '''
+     # Busco el genero especificado
+    gen = users_gen[users_gen['Género'].str.lower() == genero.lower()]
+        
+    return { 
+        'Usuario':gen['Usuario'].tolist(),
+        'Horas jugadas':gen['Año_Horas'].tolist()      
+    }
 
 
 ### Función 3 ###
@@ -150,7 +140,7 @@ def func_UsersWorstDeveloper( año : int ):
 
 
 ### Función 5 ###
-def sentiment(developer:int):
+def sentiment(developer:str):
     '''
     Según la empresa desarrolladora, se devuelve un diccionario con el nombre de la desarrolladora como llave y una lista con la cantidad total de registros de reseñas de usuarios que se encuentren categorizados con un análisis de sentimiento como valor.
     Ejemplo de retorno: {'Valve' : [Negative = 182, Neutral = 120, Positive = 278]}

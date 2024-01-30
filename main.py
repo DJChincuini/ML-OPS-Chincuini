@@ -1,7 +1,7 @@
 from Funciones import *
 from fastapi import FastAPI
 
-app = FastAPI
+app = FastAPI()
 
 @app.get('/')
 def bienvenida():
@@ -16,12 +16,12 @@ def func_playTime(genero:str):
         return {"Error":str(e)}
 
 
-#@app.get('/UserForGenre/{genero}')
-#def funcUserGenre(genero:str):
-#    try:
-#            return funcUserGenre(genero)
-#        except Exception as e:
-#            return {"Error":str(e)}
+@app.get('/UserForGenre/{genero}')
+def funcUserGenre(genero:str):
+    try:
+        return funcUserGenre(genero)
+    except Exception as e:
+        return {"Error":str(e)}
 
 
 @app.get('/UsersRecommend/{año}')
@@ -42,7 +42,7 @@ def func_UsersWorstDeveloper( año : int ):
     
     
 @app.get('/sentiment_analysis/{developer}')
-def sentiment(developer:int):
+def sentiment(developer:str):
     try:
         return sentiment(developer)
     except Exception as e:
