@@ -6,31 +6,19 @@ from sklearn.model_selection import train_test_split
 ### Función 1 ###
 def func_playTime(genero:str):
     
-    # Cargo los DataFrames.
-    steam_games = pd.read_csv('./datasets/steam_games.csv')
+    # Cargo el dataframe
+    df = pd.read_csv('./Datasets/playTimeGenre.csv')
     
-    user_review = pd.read_csv('./datasets/user_reviews.csv')
-   
-    user_items = pd.read_csv(f'./datasets/user_items_comp_csv.gz', compression='gzip') 
-    
-    # Creo un DataFrame con las columnas necesarias.
-    horas = user_items.groupby('id')['playtime_forever'].sum().reset_index()
-    horas['genres'] = steam_games.sort_values(by='id')['genres']
-    horas['genres'] = horas['genres'].str.split('.')
-    horas['year'] = user_review.sort_values(by='item_id')['Año']
-
-
-    genero = genero.strip().capitalize() # Normalizo el input del usuario si este escribe el género en minúsculas o con espacios.
-    explode = horas.explode('genres') # Separo cada uno de los generos de la columna genres.
-    
+    # Normalizo el input del usuario si este escribe el género en minúsculas o con espacios.    
+    genero = genero.strip().capitalize() 
     
     # Si no encuentra el genero retorna un mensaje de error.
-    if genero not in explode['genres'].unique():
+    if genero not in df['genres'].unique():
         return 'No existe ese género, prueba otro.'  
        
        
     # Filtro la columna genres por el genero y luego busco la mayor cantidad de horas y su año correspondiente.   
-    filtro = explode[explode['genres'] == genero]
+    filtro = df[df['genres'] == genero]
     maximo = filtro.groupby('year')['playtime_forever'].sum().idxmax()
     
     return f'Año de lanzamiento con más horas jugadar por para el genero {genero} es: {maximo}'
@@ -185,14 +173,6 @@ def sentiment(developer:str):
 def recomendacion(id_producto):
     
     steam_games = pd.read_csv('./datasets/steam_games.csv')
-    user_items = pd.read_csv(f'./datasets/user_items_comp_csv.gz', compression='gzip') 
-    user_review = pd.read_csv('./datasets/user_reviews.csv')
-
-    # Creo los DF necesarios.
-    df = steam_games.drop(columns=['price', 'developer'])
-    df['playtime'] = user_items.sort_values('id')['playtime_forever'].sum()
-    df[['recommend','sentiment_analysis	']] = user_review.sort_values('item_id')[['recommend', 'sentiment_analysis']]
-    df = df.dropna()
 
     features = steam_games.drop(columns=['genres', 'app_name', 'price', 'developer','Year'])
 
