@@ -2,10 +2,10 @@ import pandas as pd
 
 # Cargo el dataframe
 playtime = pd.read_csv('./Datasets/playTimeGenre.csv')
-users_gen = pd.read_csv('./datasets/userForGenre.csv')
-steam_games = pd.read_csv('./datasets/steam_games.csv')
-user_review = pd.read_csv('./datasets/user_reviews.csv')
-recom = pd.read_csv('./datasets/sisRecomendacion.csv')
+users_gen = pd.read_csv('./Datasets/userForGenre.csv')
+steam_games = pd.read_csv('./Datasets/steam_games.csv')
+user_review = pd.read_csv('./Datasets/user_reviews.csv')
+recom = pd.read_csv('./Datasets/sisRecomendacion.csv')
 
 
 ### Función 1 ###
