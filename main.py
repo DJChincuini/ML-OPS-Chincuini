@@ -1,6 +1,7 @@
 from Funciones import *
 from fastapi import FastAPI
 
+
 app = FastAPI()
 
 @app.get('/')
@@ -9,7 +10,7 @@ def bienvenida():
 
 
 @app.get('/PlayTimeGenre/{genero}')
-def func_playTime(genero:str):
+def PlaytimeGenre(genero:str):
     try:
         return func_playTime(genero)
     except Exception as e:
@@ -17,7 +18,7 @@ def func_playTime(genero:str):
 
 
 @app.get('/UserForGenre/{genero}')
-def funcUserGenre(genero:str):
+def UserForGenre(genero:str):
     try:
         return funcUserGenre(genero)
     except Exception as e:
@@ -25,24 +26,25 @@ def funcUserGenre(genero:str):
 
 
 @app.get('/UsersRecommend/{año}')
-def func_UsersRecommend( año : int ):
+def UsersRecommend(año:int):
     try:
-        return func_UsersRecommend(año)
+        result = usersRecommend(año)
+        return result
     except Exception as e:
         return {"Error":str(e)}
 
 
-@app.get('/UsersWorstDeveloper/{año}')
-def func_UsersWorstDeveloper( año : int ):
+@app.get('/UserWorstDeveloper/{año}')
+def UserWorstDeveloper(año:int):
     try:
-        return func_UsersWorstDeveloper(año)
+        result = usersWorstDeveloper(año)
+        return result
     except Exception as e:
         return {"Error":str(e)}
-    
-    
-    
+
+
 @app.get('/sentiment_analysis/{developer}')
-def sentiment(developer:str):
+def sentiment_analysis(developer:str):
     try:
         return sentiment(developer)
     except Exception as e:
@@ -50,8 +52,8 @@ def sentiment(developer:str):
     
     
 @app.get('/recomendacion_juego/{id}')
-def recomendacion(id_producto:int):
+def recomendacion_juego(item_id:int):
     try:
-        return recomendacion(id_producto)
+        return recomendacion(item_id)
     except Exception as e:
         return {"Error":str(e)}
