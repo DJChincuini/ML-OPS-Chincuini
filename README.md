@@ -3,6 +3,8 @@
 En este proyecto, llevaremos a cabo un análisis centrado en las Operaciones de Aprendizaje Automático (MLOps) Los datos utilizados abarcan información relacionada juegos de la plataforma Steam y la interacción de los usuarios con dichos juegos.
 Para corroborar el funcionamiento del proyecto puedes hacerlo tú mismo en: https://chincuini-ml-ops.onrender.com
 
+Puedes escuchar la explicación del proyecto por mí misma voz viedo el video explicativo de la misma: https://www.youtube.com/watch?v=e8Y6yUzEa7c
+
 
 # Proyecto
 ## Primera Parte: ETL y EDA
@@ -37,4 +39,9 @@ En el archivo Main.py podrán encontrar el desarrollo de la API realizada con la
 
 API: https://github.com/DJChincuini/ML-OPS-Chincuini/blob/main/main.py
 
-Render: https://chincuini-ml-ops.onrender.com 
+Render: https://chincuini-ml-ops.onrender.com
+##
+
+## Video
+
+Puedes ver el video en donde explico el proyecto siguiendo este link: https://www.youtube.com/watch?v=e8Y6yUzEa7c
