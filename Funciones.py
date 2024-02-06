@@ -51,7 +51,7 @@ def funcUserGenre(genero:str):
 
 
 ### Función 3 ###
-def usersRecommend(año: int):
+def func_usersRecommend(año:int):
     ''' Devuelve el top 3 de juegos MÁS recomendados por usuarios para el año dado. (reviews.recommend = True y comentarios positivos/neutrales)
     Ejemplo de retorno: ["X", "Y", "Z"]
     '''
@@ -78,7 +78,7 @@ def usersRecommend(año: int):
 
 
 ### Función 4 ###
-def usersWorstDeveloper(año: int):
+def func_usersWorstDeveloper(año:int):
     '''
     Devuelve el top 3 de desarrolladoras con juegos MENOS recomendados por usuarios para el año dado.
     Ejemplo de retorno: [{"Puesto 1": X}, {"Puesto 2": Y}, {"Puesto 3": Z}]'''
@@ -109,23 +109,25 @@ def sentiment(developer:str):
     '''
     Según la empresa desarrolladora, se devuelve un diccionario con el nombre de la desarrolladora como llave y una lista con la cantidad total de registros de reseñas de usuarios que se encuentren categorizados con un análisis de sentimiento como valor.
     Ejemplo de retorno: {'Valve' : [Negative = 182, Neutral = 120, Positive = 278]}
-    '''    
+    '''
+    steam_games = pd.read_csv('./Datasets/steam_games.csv')
+    user_review = pd.read_csv('./Datasets/user_reviews.csv')
+
+    steam_games['developer'] = steam_games['developer'].str.lower()
 
     # Saco espacios en blanco y capitalizo la primer letra si es necesario.
-    developer = developer.strip().capitalize()
-
+    dev = developer.strip().lower()
+    
+    # Me aseguro de que exista el developer.
+    if dev not in steam_games['developer'].unique():
+        return "No se registran ningun developer con ese nombre. Pruebe otro"
 
     # Hago un merge entre user_review y steam_games para poder agregar la columna developer al primer dataframe
     user_review = pd.merge(user_review,steam_games[['id','developer']], left_on='item_id',right_on='id', how='inner')
-
-
-    # Me aseguro de que exista el developer.
-    if developer not in user_review['developer'].unique():
-        return "No se registran ningun developer con ese nombre. Pruebe otro"
     
     
     # Filtro las reseñas de usuarios para el developer especificado
-    reseñas_dev = user_review[user_review['developer'] == developer]
+    reseñas_dev = user_review[user_review['developer'] == dev]
 
     # Cuento la cantidad de registros para cada categoría de análisis de sentimiento
     conteo_sentimientos = reseñas_dev['sentiment_analysis'].value_counts()
@@ -143,6 +145,10 @@ def sentiment(developer:str):
 
 ### Modelo de Recomendación ###
 def recomendacion(item_id:int):
+    
+    # Me aseguro que exista ese ID
+    if item_id not in recom['id'].unique():
+        return 'No existe ese id. Prueba otro.'
     
     # Filtrar el DataFrame por el id especificado
     result_df = recom[recom['id'] == item_id]

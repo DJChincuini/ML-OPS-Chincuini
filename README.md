@@ -8,11 +8,11 @@ En este proyecto, llevaremos a cabo un análisis centrado en las Operaciones de 
 
 3 Modelo: En esta fase, se diseñarán y desarrollarán modelos de Aprendizaje Automático con el objetivo de comprender las relaciones y prever correlaciones entre las variables.
 
-Los datos utilizados abarcan información relacionada con juegos en la plataforma Steam y la interacción de los usuarios con dichos juegos. Para corroborar el funcionamiento del proyecto puedes probarlo tú mismo en: 
+Los datos utilizados abarcan información relacionada con juegos en la plataforma Steam y la interacción de los usuarios con dichos juegos. Para corroborar el funcionamiento del proyecto puedes probarlo tú mismo en: https://chincuini-ml-ops.onrender.com
 
 
-# Archivos
-### ETL y EDA
+# Proyecto
+### Primera Parte: ETL y EDA
 
 Podrán encontrar en el archivo llamado ETL el desarrollo de proceso de limpieza y transformación de datos de cada DataFrame que en el archivo EDA se encuentran analizados y explicados.
 
@@ -21,15 +21,27 @@ ETL: https://github.com/DJChincuini/ML-OPS-Chincuini/blob/main/ETL/ETL.ipynb
 EDA: https://github.com/DJChincuini/ML-OPS-Chincuini/blob/main/EDA/EDA.ipynb
 ##
 
-### Funciones
+### Segunda Parte: Funciones
 
-En el archivo Funciones encontraran cada una de las funciones que desarrolle para este trabajo.
+Para optimizar la labor de las funciones realicé datasets específicos.
+
+Datasets para Funciones: https://github.com/DJChincuini/ML-OPS-Chincuini/blob/main/Datasets%20Funciones.ipynb
+
+###
+Para el modelo de Recomendación también realicé un datasets específico.
+
+Modelo de recomendación: https://github.com/DJChincuini/ML-OPS-Chincuini/blob/main/Modelo%20de%20Recomendación.ipynb
+
+###
+Aquí puedes encontrar las funciones.
 
 Funciones: https://github.com/DJChincuini/ML-OPS-Chincuini/blob/main/Funciones.py
 ##
 
-### API
+### Tercera Parte: API y Render
 
-En el archivo Main.py podrán encontrar el desarrollo de la API realizada con la librería FastAPI.
+En el archivo Main.py podrán encontrar el desarrollo de la API realizada con la librería FastAPI. Luego de completada esta fue cargada en GitHub para luego poder montarla en Render.
 
 API: https://github.com/DJChincuini/ML-OPS-Chincuini/blob/main/main.py
+
+Render: https://chincuini-ml-ops.onrender.com 

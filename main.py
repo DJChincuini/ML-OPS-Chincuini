@@ -26,19 +26,17 @@ def UserForGenre(genero:str):
 
 
 @app.get('/UsersRecommend/{año}')
-def UsersRecommend(año:int):
+def UsersRecommend(year:int):
     try:
-        result = usersRecommend(año)
-        return result
+        return func_usersRecommend(year)
     except Exception as e:
         return {"Error":str(e)}
 
 
 @app.get('/UserWorstDeveloper/{año}')
-def UserWorstDeveloper(año:int):
+def UserWorstDeveloper(year:int):
     try:
-        result = usersWorstDeveloper(año)
-        return result
+        return func_usersWorstDeveloper(year)
     except Exception as e:
         return {"Error":str(e)}
 
