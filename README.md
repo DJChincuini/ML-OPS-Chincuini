@@ -27,12 +27,12 @@ Para optimizar la labor de las funciones realicé datasets específicos.
 
 Datasets para Funciones: https://github.com/DJChincuini/ML-OPS-Chincuini/blob/main/Datasets%20Funciones.ipynb
 
-###
+##
 Para el modelo de Recomendación también realicé un datasets específico.
 
 Modelo de recomendación: https://github.com/DJChincuini/ML-OPS-Chincuini/blob/main/Modelo%20de%20Recomendación.ipynb
 
-###
+##
 Aquí puedes encontrar las funciones.
 
 Funciones: https://github.com/DJChincuini/ML-OPS-Chincuini/blob/main/Funciones.py
